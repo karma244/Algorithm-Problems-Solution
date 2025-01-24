@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define TxtIO   freopen("output","w",stdout);
+#define IO freopen("output","w",stdout); ios_base::sync_with_stdio(true); cin.tie(0);
 using namespace std;
 
 int graph[51][51];
@@ -23,9 +23,8 @@ void dfs(int x, int y) {
 }
 
 int main() {
-    TxtIO;
+    IO;
 
-    ios_base::sync_with_stdio(true); cin.tie(0);
     while(1) {
         cin >> w >> h;
         if (w == 0 && h == 0) break;
