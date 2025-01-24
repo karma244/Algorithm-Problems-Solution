@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define pii pair<int, int>
-#define IO freopen("output","w",stdout); ios_base::sync_with_stdio(true); cin.tie(0);
 using namespace std;
 using LL = long long int;
 using ULL = unsigned long long;
