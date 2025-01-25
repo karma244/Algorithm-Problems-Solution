@@ -20,13 +20,15 @@ def do(problem_number):
     inputs = data.find_all('pre', id=re.compile(r'sample-input-\d+'))
 
     inputs = [data.text.strip() for data in inputs]
+    #rinux 개행 문자가 vsc에선 적용되기 때문에 두 번 줄바꿈을 하여 이를 방지.
+    cleaned_list = [text.replace('\r', '') for text in inputs]
     folder_path = Path(problem_number)
 
     if not folder_path.exists():
         folder_path.mkdir(parents=True, exist_ok=True)
-        touchSample(folder_path, inputs)
+        touchSample(folder_path, cleaned_list)
     else:
-        touchSample(folder_path, inputs)
+        touchSample(folder_path, cleaned_list)
 
 if __name__ == "__main__":
     argument = sys.argv
