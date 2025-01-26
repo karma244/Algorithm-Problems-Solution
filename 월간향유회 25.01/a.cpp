@@ -17,7 +17,7 @@ int main() {
     unordered_set<int> used;
     vector<int> result;
     
-    for (int i = 1; i <= M; ++i) {
+    for (int i = 1; i <= M; i++) {
         if (used.count(i ^ K)) {
             continue;
         }
