@@ -5,6 +5,8 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 def touchSample(path, inputs):
+    main_path = Path(f"{path}/main.cpp")
+    main_path.touch(exist_ok=True)
     for i in range(len(inputs)):
         file_path = Path(f"{path}/{i+1}.in")
         file_path.touch(exist_ok=True)
