@@ -14,13 +14,12 @@ def touchSample(path, inputs):
         file_path.write_text(inputs[i], encoding="utf-8")
 
 def do(problem_number):
-    address = f"https://icpc.me/{problem_number}"
+    address = f"https://www.acmicpc.net/problem/{problem_number}"
 
-    response = requests.get(address, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Cookie':'OnlineJudge=i6q6asini5984g80rnc9rojt2m'}).text
+    response = requests.get(address, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36'}).text
     data = BeautifulSoup(response, 'html.parser')
 
     inputs = data.find_all('pre', id=re.compile(r'sample-input-\d+'))
-
     inputs = [data.text.strip() for data in inputs]
     #rinux 개행 문자가 vsc에선 적용되기 때문에 두 번 줄바꿈을 하여 이를 방지.
     cleaned_list = [text.replace('\r', '') for text in inputs]

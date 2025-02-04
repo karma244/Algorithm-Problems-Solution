@@ -9,8 +9,11 @@ int main() {
     vector<int> arr(n);
     for (int i = 0; i < n; i++) cin >> arr[i];
 
-    int start = 0, end = n-1, sum = 0, len = 0;
-    for (int i = 0; i < n; i++) {
-        
-    }   
+    int start = 0, end = 0, sum = arr[0], ret = INT_MAX;
+    while (start <= end && end < n) {
+        if (sum >= s) ret = min(ret, end-start + 1);
+        if (sum < s) end++, sum += arr[end];
+        else sum -= arr[start], start++;
+    }
+    cout << (ret == INT_MAX ? 0 : ret);
 }
