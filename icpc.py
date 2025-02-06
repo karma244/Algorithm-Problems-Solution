@@ -16,7 +16,11 @@ def touchSample(path, inputs):
 def do(problem_number):
     address = f"https://www.acmicpc.net/problem/{problem_number}"
 
-    response = requests.get(address, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36'}).text
+    response = requests.get(address, headers={
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    }).text
+    
     data = BeautifulSoup(response, 'html.parser')
 
     inputs = data.find_all('pre', id=re.compile(r'sample-input-\d+'))
